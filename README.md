@@ -50,7 +50,7 @@ aws eks update-kubeconfig --name Tetris --region eu-central-1
   ![alt text](assets/tetris_v1.png)
 
 7. **Automated Deployment of the 2nd version of the Tetris using ArgoCD**
-   ```yml
+  ```yml
   # tetris-deployment.yaml
 
 	apiVersion: apps/v1
@@ -72,5 +72,32 @@ aws eks update-kubeconfig --name Tetris --region eu-central-1
 						image: nasi101/tetrisv2 # Replaced with 'nasi101/tetrisv2' - 2nd version
 						ports:
 							- containerPort: 80
-   ```
-	 
+  ```
+
+2nd version of the app:
+![alt text](assets/tetris_v2.png)
+
+8. **Decrease number of pods**
+ ```yml
+  # tetris-deployment.yaml
+
+	apiVersion: apps/v1
+	kind: Deployment
+	metadata:
+		name: tetris-deployment
+	spec:
+		replicas: 1 # Set to 1 replica
+		selector:
+			matchLabels:
+				app: tetris
+		template:
+			metadata:
+				labels:
+					app: tetris
+			spec:
+				containers:
+					- name: tetris
+						image: nasi101/tetrisv2
+						ports:
+							- containerPort: 80
+  ```
