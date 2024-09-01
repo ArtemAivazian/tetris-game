@@ -101,3 +101,9 @@ aws eks update-kubeconfig --name Tetris --region eu-central-1
 						ports:
 							- containerPort: 80
   ```
+
+Before 2 (replica):
+![alt text](assets/replica_2.png)
+
+After (1 replica):
+![alt text](assets/replica_1.png)
