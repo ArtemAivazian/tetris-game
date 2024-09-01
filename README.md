@@ -50,28 +50,28 @@ aws eks update-kubeconfig --name Tetris --region eu-central-1
   ![alt text](assets/tetris_v1.png)
 
 7. **Automated Deployment of the 2nd version of the Tetris using ArgoCD**
-  ```yml
+  ```yaml
   # tetris-deployment.yaml
 
-	apiVersion: apps/v1
-	kind: Deployment
-	metadata:
-		name: tetris-deployment
-	spec:
-		replicas: 2
-		selector:
-			matchLabels:
-				app: tetris
-		template:
-			metadata:
-				labels:
-					app: tetris
-			spec:
-				containers:
-					- name: tetris
-						image: nasi101/tetrisv2 # Replaced with 'nasi101/tetrisv2' - 2nd version
-						ports:
-							- containerPort: 80
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: tetris-deployment
+  spec:
+    replicas: 2
+    selector:
+      matchLabels:
+        app: tetris
+    template:
+      metadata:
+        labels:
+          app: tetris
+      spec:
+        containers:
+          - name: tetris
+            image: nasi101/tetrisv2  # Replaced with 'nasi101/tetrisv2' - 2nd version
+            ports:
+              - containerPort: 80
   ```
 
 2nd version of the app:
@@ -81,25 +81,25 @@ aws eks update-kubeconfig --name Tetris --region eu-central-1
  ```yml
   # tetris-deployment.yaml
 
-	apiVersion: apps/v1
-	kind: Deployment
-	metadata:
-		name: tetris-deployment
-	spec:
-		replicas: 1 # Set to 1 replica
-		selector:
-			matchLabels:
-				app: tetris
-		template:
-			metadata:
-				labels:
-					app: tetris
-			spec:
-				containers:
-					- name: tetris
-						image: nasi101/tetrisv2
-						ports:
-							- containerPort: 80
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: tetris-deployment
+  spec:
+    replicas: 1  # Set to 1 replica
+    selector:
+      matchLabels:
+        app: tetris
+    template:
+      metadata:
+        labels:
+          app: tetris
+      spec:
+        containers:
+          - name: tetris
+            image: nasi101/tetrisv2
+            ports:
+              - containerPort: 80
   ```
 
 Before 2 (replica):
