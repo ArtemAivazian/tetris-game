@@ -1,4 +1,21 @@
-## Kubernetes
+# Deploy Tetris Game on EKS cluster using ArgoCD
+![alt text](assets/argicd_gi.png)
+
+### Project Overview
+
+This project demonstrates how to deploy a Tetris game on an Amazon EKS cluster using ArgoCD for continuous delivery. The main goal is to learn how to manage, automate, and monitor Kubernetes-based applications using GitOps principles. You will gain hands-on experience in:
+
+- Provisioning and managing an EKS Cluster in AWS.
+- Configuring and managing node groups for application support.
+- Managing Kubernetes context settings for cluster interaction.
+- Installing and configuring ArgoCD for automated deployments.
+- Implementing a GitOps workflow with ArgoCD for seamless application updates.
+- Deploying, updating, and scaling applications using ArgoCD.
+
+By the end, you'll understand how to effectively deploy and manage Kubernetes applications using ArgoCD in a production-like environment.
+
+## Steps
+
 1. **Launch EKS cluster**
 ![alt text](assets/launch_cluster.png)
 2. **Add Node Group**
